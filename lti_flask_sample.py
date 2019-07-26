@@ -2,8 +2,7 @@ import os
 from flask import Flask
 from flask import render_template
 from flask.ext.wtf import Form
-from wtforms import IntegerField, BooleanField, DecimalField
-from random import randint
+from wtforms import DecimalField
 
 from pylti.flask import lti
 
@@ -14,11 +13,8 @@ app.config.from_object('config')
 class GradeForm(Form):
     grade = DecimalField('grade')
 
-
-
 def error(exception=None):
     return render_template('error.html')
-
 
 @app.route('/is_up', methods=['GET'])
 def hello_world(lti=lti):
@@ -38,16 +34,9 @@ def index(lti=lti):
     :param lti: the `lti` object from `pylti`
     :return: index page for lti provider
     """
-    return render_template('index.html', lti=lti)
-
-
-@app.route('/giveMeAGrade', methods=['GET'])
-@lti(request='session', error=error, app=app)
-def grade_form(lti=lti):
-    """ type in a grade so it can be returned back
-    """
     form = GradeForm()
-    return render_template('giveMeAGrade.html', form=form)
+    return render_template('index.html', form=form, lti=lti)
+    # return render_template('index.html', lti=lti)
 
 
 @app.route('/grade', methods=['POST'])

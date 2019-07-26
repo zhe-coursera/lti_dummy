@@ -1,12 +1,21 @@
 <html>
-<head>
-    <title>Just give me a grade</title>
-</head>
-<body>
-<h1>Hello {{ lti.nickname }}.</h1>
 
-<a href="{{ url_for('grade_form') }}">Give me a grade</a>
-<br>
+<head>
+    <title>Give Me a Grade!</title>
+</head>
+
+<body>
+    <h1>Hello {{ lti.nickname }}.</h1>
+    <form action="{{ url_for('grade') }}" method="post" name="grade_form">
+        {{ form.hidden_tag() }}
+        Put in range [0.0 - 1.0]
+        <p>
+            {{ form.grade }}
+        </p>
+
+        <p><input type="submit" value="Return Grade"></p>
+    </form>
 
 </body>
+
 </html>
