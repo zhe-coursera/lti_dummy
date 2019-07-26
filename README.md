@@ -1,4 +1,4 @@
-**Do not use this in any production as is. The default parameter will log secret key by default**
+**Do not use this in any production as is. This will log secret key by default.**
 
 *modified from https://github.com/mitodl/mit_lti_flask_sample*
 
