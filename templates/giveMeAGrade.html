@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Give Me a Grade!</title>
+</head>
+<body>
+
+<form action="{{ url_for('grade') }}" method="post" name="grade_form">
+    {{ form.hidden_tag() }}
+    Put in range [0.0 - 1.0]
+    <p>
+        {{ form.grade }}
+    </p>
+
+    <p><input type="submit" value="Return Grade"></p>
+</form>
+
+</body>
+</html>

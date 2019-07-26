@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Grade</title>
+</head>
+<body>
+
+<form action="{{ url_for('grade') }}" method="post" name="login">
+    {{ form.hidden_tag() }}
+    You should get this grade:
+    <p>
+        {{ form.grade(readonly=true)}}
+    </p>
+    <a href="{{ url_for('grade_form') }}">Give me another grade</a>
+</form>
+
+</body>
+</html>
