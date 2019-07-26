@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask import render_template
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import DecimalField
 
 from pylti.flask import lti
